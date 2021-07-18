@@ -3,9 +3,9 @@ WORKDIR '/app'
 COPY ./package.json ./
 RUN npm i
 COPY . .
-CMD ["npm", "run", "build"]
+RUN npm run build
 
-FROM nginx
+FROM nginx:latest
 EXPOSE 3000
 COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
 COPY --from=0 /app/build /usr/share/nginx/html
