@@ -53,6 +53,7 @@ app.get("/values/current", async (req, res) => {
 });
 
 app.post("/values", async (req, res) => {
+
   const index = req.body.index ? req.body.index : 0;
 
   if (parseInt(index) > 40) {
